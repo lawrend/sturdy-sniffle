@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ZipCodeSearchBar from './containers/zip_code_search_bar.js';
-
+import ZipCodeSearchBar from './containers/ZipCodeSearchBar.js';
+import Routes from './routes';
 class App extends Component {
   render() {
     return (
@@ -20,11 +20,12 @@ class App extends Component {
           >
             Check out NASA
           </a>
-          <ZipCodeSearchBar />
+          <Routes />
+
         </header>
       </div>
-      );
-}
+    );
+  }
 }
 
 export default App;
