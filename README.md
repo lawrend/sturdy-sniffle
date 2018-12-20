@@ -44,8 +44,8 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 > TO DO:
-> -create store
-> -set up prvider
+> -create store DONE
+> -set up prvider DONE
 > -routes to 5 pages
 > --set up Route
 > -api call
