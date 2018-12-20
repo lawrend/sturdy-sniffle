@@ -2,7 +2,7 @@ import React from 'react';
 
 export default props => (
   <div className="Zip-Code-Search-Bar">
-    Does this work?
+    The zip is currently {this.state.zipcode}
   </div>
 )
 
