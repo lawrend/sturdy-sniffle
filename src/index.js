@@ -6,17 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import BrowserHistory from 'history/createBrowserHistory';
-import { createStore, applyMiddleware } from 'redux';
-import {rootReducer} from './store/reducers/index.js';
-import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension'
+import store from './store/index.js'
 
 const history = BrowserHistory();
 
-const store=createStore(
-  rootReducer, composeWithDevTools(applyMiddleware(thunk)
-    // , window.__REDUX_DEVTOOLS_EXTENSION__ && __REDUX_DEVTOOLS_EXTENSION__()
-  ));
 
 ReactDOM.render(
   <Provider store= {store}>
