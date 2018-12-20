@@ -1,3 +1,4 @@
+// import Router, Provider, BrowserHistory, and App
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -6,7 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import BrowserHistory from 'history/createBrowserHistory';
-import {composeWithDevTools} from 'redux-devtools-extension'
 import store from './store/index.js'
 
 const history = BrowserHistory();

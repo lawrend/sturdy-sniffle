@@ -1,3 +1,4 @@
+// import all relevant pieces of react-router-dom, and all components rendered by routes
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import Homepage from './components/homepage.js'

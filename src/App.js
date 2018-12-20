@@ -1,3 +1,4 @@
+// the current landing page which renders the Routes component
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -7,17 +8,17 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Let's use NASA's API for something, shall we?
+            An app using Spotify's API and maybe a graphing api too
           </p>
+          <p>(Change the link below)</p>
           <a
             className="App-link"
-            href="https://www.nasa.gov"
+            href="https://spotify.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Check out NASA
+            Check out Spotify's API
           </a>
           <Routes />
         </header>
