@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
-import ZipCodeReducer from './ZipCode';
+import SongReducer from './SongReducer.js';
 
 export const rootReducer = combineReducers({
-  zipcode: ZipCodeReducer,
-  // user: UserReducer
+  song: SongReducer
 }
 );
 
 
-// Import this /store/index.js
