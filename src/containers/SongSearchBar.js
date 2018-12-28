@@ -17,6 +17,9 @@ class SongSearchBar extends Component {
     console.log(this.props.songs)
     return (
       <div>
+        <form>
+          <input type="text" />
+          </form>
       <button onClick={e => this.props.songSearch("yesterday")}></button>
       <SongsList />
     </div>

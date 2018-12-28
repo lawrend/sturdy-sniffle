@@ -11,10 +11,9 @@ class App extends Component {
           <p>
             An app using Spotify's API and maybe a graphing api too
           </p>
-          <p>(Change the link below)</p>
           <a
             className="App-link"
-            href="https://spotify.com"
+            href="https://developer.spotify.com"
             target="_blank"
             rel="noopener noreferrer"
           >
