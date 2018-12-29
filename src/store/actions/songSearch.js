@@ -12,13 +12,11 @@
 // })
 //   .then(response => console.log(response))
 //
-//   client_id = "eab42e1c3f9140f69e2480b69608b0af"
-//   client_secret = "dbe1d90886874f86aa42113ea6f674c3"
+import {CLIENT_ID, CLIENT_SECRET} from '../../config.js';
 
-const CLIENT_ID=process.env.CLIENT_ID;
-const CLIENT_SECRET=process.env.CLIENT_SECRET;
+console.log(CLIENT_ID, CLIENT_SECRET)
 
-const TOKEN = fetch("https://accounts.spotify.com/api/token", {
+fetch("https://accounts.spotify.com/api/token", {
   method: "POST",
   body: {
     grant_type: "client_credentials",
@@ -26,7 +24,8 @@ const TOKEN = fetch("https://accounts.spotify.com/api/token", {
   headers: {
     "Authorization": "Basic:" + CLIENT_ID + ":" + CLIENT_SECRET
   }
-});
+})
+  .then(response => console.log(response));
 
 
 const ROOT_URL = "https://api.spotify.com/v1/search?"
@@ -39,16 +38,17 @@ const setSongList = songs => ({
 })
 
 // NEEDS CLARIFICATION: complex action that takes in songTitle and also does something with dispatch, sends off api request with the method and auth header, middleware waits for promise to resolve (using 'then'), converts it to JSON, then dispatches the simple action to the reducer with the api return data as an argument
+//
 export const songSearch = songTitle => dispatch => {
-  const url = `${ROOT_URL}&q=${songTitle}&type=track&${TOKEN}`;
+  const url = `${ROOT_URL}&q=${songTitle}&type=track`
   fetch(url, {
     method: 'GET',
     headers: {
-      "Authorization":+"Bearer"+TOKEN
+      "Authorization":+"Bearer"
     }
   })
     .then(response =>response.json())
-    // .then(songs => dispatch(setSongList(songs)))
+    .then(songs => dispatch(setSongList(songs)))
     .then(response => console.log(response))
 }
 
