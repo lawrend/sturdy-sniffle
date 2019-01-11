@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SongsList from '../components/SongsList.js';
-import {songSearch} from '../store/actions/songSearch.js';
+import {songSearch} from '../store/actions/songSearch.js'
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -12,6 +12,7 @@ const mapDispatchToProps = dispatch => ({
   return dispatch(songSearch(songTitle))
   }
 })
+
 class SongSearchBar extends Component {
   render() {
     console.log(this.props.songs)
@@ -20,7 +21,7 @@ class SongSearchBar extends Component {
         <form>
           <input type="text" />
           </form>
-      <button onClick={e => this.props.songSearch("yesterday")}></button>
+      <button onClick={e => this.props.songSearch("yesterday")}>click me, bro</button>
       <SongsList />
     </div>
     )
