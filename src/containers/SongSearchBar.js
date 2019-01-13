@@ -15,15 +15,14 @@ const mapDispatchToProps = dispatch => ({
 
 class SongSearchBar extends Component {
   render() {
-    console.log(this.props.songs)
-    return (
+        return (
       <div>
         <form>
           <input type="text" />
           </form>
       <button onClick={e => this.props.songSearch("yesterday")}>click me, bro</button>
-      <SongsList />
-    </div>
+      <SongsList songs={this.props.songs}/>
+      </div>
     )
   }
 }

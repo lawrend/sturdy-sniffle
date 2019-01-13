@@ -7,6 +7,7 @@ export default function manageSongSearch (state = initialState, action) {
   switch (action.type) {
     case 'SET_SONG_LIST':
       const newState = Object.assign({}, state, { songs: action.payload })
+      console.log("reducer called", newState)
       return newState
     default:
       return state

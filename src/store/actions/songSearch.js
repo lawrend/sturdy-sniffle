@@ -42,77 +42,14 @@ export const songSearch = songTitle => dispatch => {
         json: true
       };
       request.get(options, function(error, response, body) {
-        console.log(body);
+        console.log(body.tracks.items);
+        dispatch(setSongList(body.tracks.items))
       })
     }
   });
 }
+
 // .then(songs => dispatch(setSongList(songs)))
 //     .then(response => console.log(response));
-
-// let request = require('request');
-// let root_url = 'https://api.spotify.com/v1/search?';
-
-// export const songSearch = songTitle => dispatch => {
-//   const url = `${root_url}&q=${songTitle}&type=track`
-//   fetch(url, {
-//     method: 'GET',
-//     headers: {
-//       "Authorization": "Bearer" + `${token}`
-//     }
-//   })
-//     .then(response =>response.json())
-//     .then(songs => dispatch(setSongList(songs)))
-//     .then(response => console.log(response))
-// }
-
-
-// let SpotifyWebApi = require('spotify-web-api-node')
-
-// let spotifyApi = new SpotifyWebApi({
-//   clientId: CLIENT_ID,
-//   clientSecret: CLIENT_SECRET,
-//   redirectUri: 'localhost:3000/',
-// })
-
-// spotifyApi.authorizationCodeGrant()
-//   .then(function(data) {
-//     console.log('The token expires in', data.body['expires_in']);
-//     console.log('the access token is', data.body['access_token']);
-//     console.log('The refresh token is', data.body['refresh_token']);
-//     spotifyApi.setAccessToken(data.body['access_token']);
-//     spotifyApi.setRefreshToken(data.body['refresh_token']);
-//   },
-//     function(err) {
-//       console.log('something went wrong!', err);
-//     }
-//   )
-
-
-// export const songSearch = (songTitle) => {
-//   spotifyApi.searchTracks(songTitle)
-//     .then(function(data) {
-//       console.log('Search by ', songTitle, data.body);
-//     }, function(err){
-//       console.error(err);
-//     });
-// }
-
-// fetch("https://accounts.spotify.com/api/token", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/x-www-form-urlencoded",
-//     "Authorization": "Basic" + `${CLIENT_ID} {CLIENT_SECRET}`,
-//   },
-//   body: {
-//     grant_type: "client_credentials",
-//   },
-// })
-//   .then(response => console.log(response.error, response.data));
-
-// const ROOT_URL = "https://api.spotify.com/v1/search?"
-
-//// NEEDS CLARIFICATION: complex action that takes in songTitle and also does something with dispatch, sends off api request with the method and auth header, middleware waits for promise to resolve (using 'then'), converts it to JSON, then dispatches the simple action to the reducer with the api return data as an argument
-////
 
 
