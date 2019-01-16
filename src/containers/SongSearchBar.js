@@ -9,22 +9,22 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => ({
   songSearch(songTitle){
-  return dispatch(songSearch(songTitle))
+    return dispatch(songSearch(songTitle))
   }
 })
 
 class SongSearchBar extends Component {
   render() {
-        return (
+    return (
       <div>
         <form>
-          <input type="text" />
-          </form>
-      <button onClick={e => this.props.songSearch("yesterday")}>click me, bro</button>
-      <SongsList songs={this.props.songs}/>
+          <input type="text" id="songSearchField"/>
+        </form>
+        <button onClick={e => this.props.songSearch(document.getElementById("songSearchField").value)}>click me, bro</button>
+        <SongsList songs={this.props.songs}/>
       </div>
-    )
-  }
+      )
+}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongSearchBar);

@@ -5,39 +5,27 @@ import SongItem from './SongItem.js';
 class SongsList extends Component {
   render() {
     const allSongs = this.props.songs;
-
-    Object.keys(allSongs).forEach(function(k,i){
-        let type = allSongs[k].album.album_type;
-        let name = allSongs[k].name;
+    let newSongs = [];
+    const songContents = function() {Object.keys(allSongs).forEach(function(k,i){
+      let id = allSongs[k].id;
+      let type = allSongs[k].album.album_type;
+      let name = allSongs[k].name;
       console.log("type is ", type, "name is ", name)
-         let newSong = <SongItem albumType={type} albumName={name} />
-
-        }
-      )
-
-    // let itemMaker = function() {
-    // for(const key in allSongs){
-    //   let albumType = allSongs[key].album.album_type;
-    //   let albumName = allSongs[key].name;
-    //   return <SongItem albumType={albumType} albumName={albumName} />
-    // }
-// }
-    // const collection = allSongs.map(song => (
-    // <SongItem key={song.id} {...song} />
-    // ));
+      let newSong = <SongItem id={id} albumType={type} albumName={name} />
+      newSongs.push(newSong)
+    }
+    )
+      return newSongs;
+    }
 
     return (
       <div className="Song-List">
-           </div>
+        {songContents()}
+      </div>
       );
   }
 };
 
 export default SongsList
 
-//
-// { allSongs.map(song => (
-        // <SongItem key={song.id} {...song} />
-        // ))
-        // }
 
