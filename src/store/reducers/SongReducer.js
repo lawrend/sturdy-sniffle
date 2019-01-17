@@ -1,5 +1,5 @@
 // RECEIVES ACTIONS, UPDATES STORE: sets initial state which is an object
-const initialState = { songs: {}, searchTerm: "" }
+const initialState = { songs: [], searchTerm: "" }
 
 // exports function which sets initial state and takes in the action passed and uses switch to determine the action to perform
 // it then creates a new object to replace the current state, only changing what the action tells it to.
