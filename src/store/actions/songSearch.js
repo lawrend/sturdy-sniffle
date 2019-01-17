@@ -13,6 +13,13 @@ const setSongList = songs => ({
   payload: songs
 })
 
+export const SET_SEARCH_TERM ="SET_SEARCH_TERM";
+
+const setSearchTerm = term => ({
+  type: SET_SEARCH_TERM,
+  payload: term,
+})
+
 
 let request = require('request'); // "Request" library
 
@@ -44,6 +51,7 @@ export const songSearch = songTitle => dispatch => {
       request.get(options, function(error, response, body) {
         console.log(body.tracks.items);
         dispatch(setSongList(body.tracks.items))
+        dispatch(setSearchTerm(songTitle))
       })
     }
   });

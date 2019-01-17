@@ -6,6 +6,8 @@ class SongsList extends Component {
   render() {
     const allSongs = this.props.songs;
     let newSongs = [];
+    console.log(typeof allSongs)
+
     const songContents = function() {Object.keys(allSongs).forEach(function(k,i){
       let id = allSongs[k].id;
       let type = allSongs[k].album.album_type;
