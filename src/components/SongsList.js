@@ -10,8 +10,9 @@ class SongsList extends Component {
       let id = allSongs[k].id;
       let type = allSongs[k].album.album_type;
       let name = allSongs[k].name;
+      let band = allSongs[k].artists[0].name;
       console.log("type is ", type, "name is ", name)
-      let newSong = <SongItem id={id} albumType={type} albumName={name} />
+      let newSong = <SongItem band={band} key={allSongs[k].id} id={id} albumType={type} albumName={name} />
       newSongs.push(newSong)
     }
     )
@@ -27,5 +28,4 @@ class SongsList extends Component {
 };
 
 export default SongsList
-
 
