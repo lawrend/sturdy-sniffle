@@ -45,11 +45,21 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 > TO DO:
 > -create store DONE
+
 > -set up prvider DONE
+
 > -routes to 5 pages
+
 > --set up Route
-> -api call
+
+> -api call DONE
+
 > --manipulation of data displayed
+
 > -set up actions and reducers
+
 > -calls to a db? 
-> -
+
+> -display each track as link
+> --when link clicked it will call to analyze the song and return the audio analysis
+
