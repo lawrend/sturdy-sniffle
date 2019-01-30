@@ -4,6 +4,7 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 import Homepage from './components/homepage.js'
 import Example from './components/example';
 import SongSearchBar from './containers/SongSearchBar.js';
+import SongDetail from './containers/SongDetail.js';
 
 class Routes extends Component {
   render() {
@@ -11,9 +12,10 @@ class Routes extends Component {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route exact path="/songsearch" component={SongSearchBar} />
-        <Route component={Example} />
-      </Switch>
-      )
+        <Route exact path="/songdetail" component={SongDetail} />
+          <Route component={Example} />
+        </Switch>
+        )
 }
 };
 

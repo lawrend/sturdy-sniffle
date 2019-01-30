@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -20,6 +20,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Song-Item {
+  color: yellow;
 }
 
 @keyframes App-logo-spin {
