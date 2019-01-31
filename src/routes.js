@@ -12,7 +12,7 @@ class Routes extends Component {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route exact path="/songsearch" component={SongSearchBar} />
-        <Route exact path="/songdetail" component={SongDetail} />
+        <Route path="/songdetail/:id" component={SongDetail} />
           <Route component={Example} />
         </Switch>
         )

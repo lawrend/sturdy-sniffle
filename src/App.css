@@ -18,9 +18,14 @@
   color: white;
 }
 
-.App-link {
+/* .App-link { */
+/*   color: #61dafb; */
+/* } */
+
+a {
   color: #61dafb;
 }
+
 
 .Song-Item {
   color: yellow;

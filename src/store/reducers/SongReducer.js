@@ -1,5 +1,5 @@
 // RECEIVES ACTIONS, UPDATES STORE: sets initial state which is an object
-const initialState = { songs: [], searchTerm: "" }
+const initialState = { songs: [], searchTerm: "", selectedTrack: "" }
 
 // exports function which sets initial state and takes in the action passed and uses switch to determine the action to perform
 // it then creates a new object to replace the current state, only changing what the action tells it to.
@@ -8,12 +8,10 @@ export default function manageSongSearch (state = initialState, action) {
   switch (action.type) {
     case 'SET_SONG_LIST':
       return {...state, songs: action.payload}
-      // const newSongsState = Object.assign({}, state, { songs: action.payload })
-      // return newSongsState
     case 'SET_SEARCH_TERM':
       return {...state, searchTerm: action.payload}
-      // const newSearchTermState = Object.assign({}, state, {searchTerm: action.payload})
-      // return newSearchTermState
+    case 'SET_SELECTED_TRACK':
+      return {...state, selectedTrack: action.payload}
     default:
       return state
   }

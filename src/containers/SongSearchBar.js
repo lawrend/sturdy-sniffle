@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SongsList from '../components/SongsList.js';
 import {songSearch} from '../store/actions/songSearch.js'
+import {setSelectedTrack} from '../store/actions/setSelectedTrack.js'
 import { connect } from 'react-redux';
 
 //subscribes to state; will update upon state change
@@ -10,9 +11,11 @@ const mapStateToProps = state => ({
 
 //subscribes to the action(s); dispatch the action to the reducer
 const mapDispatchToProps = dispatch => ({
-
-  dog(songTitle){
+  songSearcher(songTitle){
     return dispatch(songSearch(songTitle))
+  },
+  songDetail(id){
+    return dispatch(setSelectedTrack(id))
   }
 })
 
@@ -27,7 +30,11 @@ class SongSearchBar extends Component {
   searchSong = (event) => {
     event.preventDefault();
     const songName = event.target.songSearchField.value;
-    this.props.dog(songName)
+    this.props.songSearcher(songName)
+  }
+
+  songDetails = (id) => {
+    this.props.songDetail(id)
   }
 
   render() {
@@ -39,7 +46,7 @@ class SongSearchBar extends Component {
             <button type="submit">click me, bro</button>
           </p>
         </form>
-        <SongsList songs={this.props.songs}/>
+        <SongsList songs={this.props.songs} setSelectedTrack={this.songDetails}/>
       </div>
       )
   }

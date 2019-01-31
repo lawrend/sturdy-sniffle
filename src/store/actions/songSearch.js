@@ -2,8 +2,7 @@
 //it's the way spotify's example was set up so i'm going that route
 import {CLIENT_ID_NO_ENCODE, CLIENT_SECRET_NO_ENCODE} from '../../config.js';
 
-// let request = require('request'); // "Request" library
-import request from 'request';
+let request = require('request'); // "Request" library
 let client_id = CLIENT_ID_NO_ENCODE; // Your client id
 let client_secret = CLIENT_SECRET_NO_ENCODE; // Your secret
 
