@@ -2,9 +2,9 @@ import {CLIENT_ID_NO_ENCODE, CLIENT_SECRET_NO_ENCODE} from '../../config.js';
 
 export const SET_SELECTED_TRACK = "SET_SELECTED_TRACK";
 
-const songSelector = trackId => ({
+const songSelector = songAudioDetails => ({
   type: SET_SELECTED_TRACK,
-  payload: trackId,
+  payload: songAudioDetails,
 })
 
 let request = require('request');
@@ -38,6 +38,7 @@ export const setSelectedTrack = id => dispatch => {
       };
       request.get(options, function(error, response, body) {
         console.log("body: ", body);
+        dispatch(songSelector(body))
       })
     }
   })

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import SongDetail from '../containers/SongDetail.js'
 
 export default class SongItem extends Component{
   getSongDetails = () => {
