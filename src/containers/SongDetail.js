@@ -12,6 +12,7 @@ class SongDetail extends Component {
     return (
       <div className="Song-Detail">
         <p>this is the song detail</p>
+        <p>The song has a danceability of {this.props.selectedTrackDetails.danceability}</p>
       </div>
       )
   }
