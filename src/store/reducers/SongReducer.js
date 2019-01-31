@@ -1,5 +1,5 @@
 // RECEIVES ACTIONS, UPDATES STORE: sets initial state which is an object
-const initialState = { songs: [], searchTerm: "", selectedTrack: "" }
+const initialState = { songs: [], searchTerm: "", selectedTrackDetails: [] }
 
 // exports function which sets initial state and takes in the action passed and uses switch to determine the action to perform
 // it then creates a new object to replace the current state, only changing what the action tells it to.
@@ -11,7 +11,7 @@ export default function manageSongSearch (state = initialState, action) {
     case 'SET_SEARCH_TERM':
       return {...state, searchTerm: action.payload}
     case 'SET_SELECTED_TRACK':
-      return {...state, selectedTrack: action.payload}
+      return {...state, selectedTrackDetails: action.payload}
     default:
       return state
   }
