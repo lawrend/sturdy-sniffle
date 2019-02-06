@@ -20,6 +20,20 @@ const setSearchTerm = term => ({
   payload: term,
 })
 
+// export const songSearch = songTitle => dispatch => {
+//   fetch('https://accounts.spotify.com/api/token', {
+//     headers: {
+//       'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')),
+//       'Content-Type' : 'application/json',
+
+//     },
+//     form: {
+//       grant_type: 'client_credentials'
+//     },
+//   }).then(data => {
+//     console.log(data)
+//   })
+// }
 
 export const songSearch = songTitle => dispatch => {
   // application requests authorization
@@ -52,32 +66,7 @@ export const songSearch = songTitle => dispatch => {
       })
     }
   })
-
-
-  // request.post(authOptions, function(error, response, body) {
-  //    if (!error && response.statusCode === 200) {
-
-  //      // use the access token to access the Spotify Web API
-  //      let token = body.access_token;
-  //      let options = {
-  //        url: `https://api.spotify.com/v1/search?q=${songTitle}&type=track`,
-  //        headers: {
-  //          'Authorization': 'Bearer ' + token
-  //        },
-  //        json: true
-  //      };
-  //      request.get(options, function(error, response, body) {
-  //        console.log("body tracks items: ", body.tracks.items);
-  //        dispatch(setSongList(body.tracks.items))
-  //        dispatch(setSearchTerm(songTitle))
-  //      })
-  //    }
-  //  })
-
   ;
 }
-
-// .then(songs => dispatch(setSongList(songs)))
-//     .then(response => console.log(response));
 
 

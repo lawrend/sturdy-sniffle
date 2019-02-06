@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import SongsList from '../components/SongsList.js';
-import {songSearch} from '../store/actions/songSearch.js'
-import {setSelectedTrack} from '../store/actions/setSelectedTrack.js'
+import {songSearch} from '../store/actions/songSearch.js';
+import {setSelectedTrack} from '../store/actions/setSelectedTrack.js';
+import {getTrackAnalysis} from '../store/actions/getTrackAnalysis.js';
 import { connect } from 'react-redux';
 
 //subscribes to state; will update upon state change
@@ -14,9 +15,12 @@ const mapDispatchToProps = dispatch => ({
   songSearcher(songTitle){
     return dispatch(songSearch(songTitle))
   },
-  songDetail(id){
+  setSelectedTrack(id){
     return dispatch(setSelectedTrack(id))
-  }
+  },
+  getTrackAnalysis(id){
+    return dispatch(getTrackAnalysis(id))
+  },
 })
 
 class SongSearchBar extends Component {
@@ -33,9 +37,6 @@ class SongSearchBar extends Component {
     this.props.songSearcher(songName)
   }
 
-  songDetails = (id) => {
-    this.props.songDetail(id)
-  }
 
   render() {
     return (
@@ -46,7 +47,7 @@ class SongSearchBar extends Component {
             <button type="submit">click me, bro</button>
           </p>
         </form>
-        <SongsList songs={this.props.songs} setSelectedTrack={this.songDetails}/>
+        <SongsList songs={this.props.songs} setSelectedTrack={this.props.setSelectedTrack} getTrackAnalysis={this.props.getTrackAnalysis} />
       </div>
       )
   }

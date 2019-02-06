@@ -5,6 +5,7 @@ import Homepage from './components/homepage.js'
 import Example from './components/example';
 import SongSearchBar from './containers/SongSearchBar.js';
 import SongDetail from './containers/SongDetail.js';
+import SongAnalysis from './containers/SongAnalysis.js';
 
 class Routes extends Component {
   render() {
@@ -13,9 +14,10 @@ class Routes extends Component {
         <Route exact path="/" component={Homepage} />
         <Route exact path="/songsearch" component={SongSearchBar} />
         <Route path="/songdetail/:id" component={SongDetail} />
-          <Route component={Example} />
-        </Switch>
-        )
+        <Route path="/songdetail/:id" component={SongAnalysis} />
+        <Route component={Example} />
+      </Switch>
+      )
 }
 };
 
