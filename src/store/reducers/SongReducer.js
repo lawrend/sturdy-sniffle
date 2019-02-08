@@ -13,8 +13,7 @@ export default function manageSongSearch (state = initialState, action) {
     case 'SET_SELECTED_TRACK':
       return {...state, selectedTrackDetails: action.payload}
     case 'GET_TRACK_ANALYSIS':
-      return {...state, selectedTrackAnalysis: action.payload}
-
+      return {...state, selectedTrackAnalysis: action.payload.track}
     default:
       return state
   }

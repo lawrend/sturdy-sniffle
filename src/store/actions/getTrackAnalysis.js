@@ -1,6 +1,6 @@
 import {CLIENT_ID_NO_ENCODE, CLIENT_SECRET_NO_ENCODE} from '../../config.js';
 
-export const GET_TRACK_ANALYSIS = "GET_AUDIO_ANALYSIS";
+export const GET_TRACK_ANALYSIS = "GET_TRACK_ANALYSIS";
 
 const fetchAnalysis = songAudioDetails => ({
   type: GET_TRACK_ANALYSIS,

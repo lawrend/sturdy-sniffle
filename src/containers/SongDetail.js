@@ -7,8 +7,7 @@ const mapStateToProps = state => ({
 
 class SongDetail extends Component {
   render() {
-    {console.log("SongDetail props: ", this.props)
-    }
+    console.log("song detail props: ", this.props.selectedTrackDetails)
     return (
       <div className="Song-Detail">
         <p>this is the song detail</p>

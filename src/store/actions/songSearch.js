@@ -20,21 +20,6 @@ const setSearchTerm = term => ({
   payload: term,
 })
 
-// export const songSearch = songTitle => dispatch => {
-//   fetch('https://accounts.spotify.com/api/token', {
-//     headers: {
-//       'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')),
-//       'Content-Type' : 'application/json',
-
-//     },
-//     form: {
-//       grant_type: 'client_credentials'
-//     },
-//   }).then(data => {
-//     console.log(data)
-//   })
-// }
-
 export const songSearch = songTitle => dispatch => {
   // application requests authorization
   let authOptions = {
@@ -60,7 +45,6 @@ export const songSearch = songTitle => dispatch => {
         json: true
       };
       request.get(options, function(error, response, body) {
-        console.log("body tracks items: ", body.tracks.items);
         dispatch(setSongList(body.tracks.items))
         dispatch(setSearchTerm(songTitle))
       })
