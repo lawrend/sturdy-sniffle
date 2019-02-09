@@ -7,6 +7,7 @@ export default class SongItem extends Component{
 
     this.props.getTrackAnalysis(this.props.id);
     this.props.setSelectedTrack(this.props.id);
+    this.props.getVideos(this.props.songName);
   }
 
   render() {

@@ -1,9 +1,9 @@
-const initialState = {videos: [], selectedVideo: ""};
+const initialState = {videos: [], };
 
 export default function manageVideoSearch (state = initialState, action) {
   switch (action.type) {
     case 'GET_VIDEOS':
-      return {...state, videos: action.payload.videos, selectedVideo: action.payload.selectedVideo}
+      return {...state, videos: action.payload, }
     default:
       return state
   }
