@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 export default class SongItem extends Component{
 
   clickForActions() {
-
     this.props.getTrackAnalysis(this.props.id);
     this.props.setSelectedTrack(this.props.id);
-    this.props.getVideos(this.props.songName);
+    this.props.getVideos(this.props.songName + " " + this.props.band);
   }
 
   render() {
