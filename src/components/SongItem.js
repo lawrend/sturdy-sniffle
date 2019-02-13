@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Button, Card } from 'semantic-ui-react';
 
 export default class SongItem extends Component{
 
@@ -12,14 +13,27 @@ export default class SongItem extends Component{
   render() {
     return (
       <div className="Song-Item">
-        <ul>
-          <li>Album/Single: {this.props.albumType}</li>
-          <li>Artist Name: {this.props.band}</li>
-          <li>Album Name: {this.props.albumName}</li>
-          <li><Link to={`/songspecifics/${this.props.id}/`} onClick={() => this.clickForActions()} >Song Name: {this.props.songName}</Link></li>
-        </ul>
-      </div>
-      )
-}
+        <Container fluid>
+        <Card>
+          <Card.Content>
+            <Card.Header><Link to={`/songspecifics/${this.props.id}/`} onClick={() => this.clickForActions()} >{this.props.songName}</Link></Card.Header>
+            <Card.Meta>By {this.props.band}</Card.Meta>
+            <Card.Description>From the album "{this.props.albumName}"</Card.Description>
+        </Card.Content>
+            <Card.Content extra>
+              <div className='ui two buttons'>
+                <Button basic color='green'>
+                  Ye
+                </Button>
+                <Button basic color='red'>
+                  Nah
+                </Button>
+              </div>
+            </Card.Content>
+          </Card>
+        </Container>
+        </div>
+        )
+        }
 
-}
+        }

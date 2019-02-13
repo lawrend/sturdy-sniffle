@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import BrowserHistory from 'history/createBrowserHistory';
+import 'semantic-ui-css/semantic.min.css';
 import store from './store/index.js'
 
 const history = BrowserHistory();

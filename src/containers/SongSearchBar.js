@@ -7,7 +7,7 @@ import {setSelectedTrack} from '../store/actions/setSelectedTrack.js';
 import {getTrackAnalysis} from '../store/actions/getTrackAnalysis.js';
 import {getVideos} from '../store/actions/getVideos.js';
 import { connect } from 'react-redux';
-import { Button } from 'semantic-ui-react';
+import { Container, Form, Button } from 'semantic-ui-react';
 
 //subscribes to state; will update upon state change
 const mapStateToProps = state => ({
@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class SongSearchBar extends Component {
-    searchSong = (event) => {
+  searchSong = (event) => {
     event.preventDefault();
     const songName = event.target.songSearchField.value;
     this.props.songSearcher(songName)
@@ -39,22 +39,18 @@ class SongSearchBar extends Component {
 
   render() {
     return (
-       <div className="ui container">
-         <form onSubmit={this.searchSong}>
-           <input type="text" name="songSearchField" />
-           <p>
-             <button type="submit">click me, bro</button>
-           </p>
-           </form>
-           <div className="ui grid">
-             <div className="ui row">
-           <div className="eleven wide column">
-         <SongsList songs={this.props.songs} setSelectedTrack={this.props.setSelectedTrack} getTrackAnalysis={this.props.getTrackAnalysis} getVideos={this.props.getVideos}/>
-       </div>
-     </div>
-   </div>
- </div>
-       )
+      <div >
+        <Container>
+        <Form onSubmit={this.searchSong}>
+          <Form.Input fluid type="text" name="songSearchField" placeholder="enter song name"/>
+            <Form.Button animated type="submit"><Button.Content visible>click me, bro</Button.Content><Button.Content hidden>YEE</Button.Content></Form.Button>
+        </Form>
+        <div >
+          <SongsList songs={this.props.songs} setSelectedTrack={this.props.setSelectedTrack} getTrackAnalysis={this.props.getTrackAnalysis} getVideos={this.props.getVideos}/>
+        </div>
+      </Container>
+      </div>
+      )
   }
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SongItem from './SongItem.js';
+import { Card } from 'semantic-ui-react';
 
 const songContents = (songs, props) => {
   return songs.map(song =>
@@ -9,8 +10,10 @@ const songContents = (songs, props) => {
 class SongsList extends Component {
   render() {
     return (
-      <div className="Song-List">
-        {songContents(this.props.songs, this.props)}
+      <div>
+        <Card.Group>
+          {songContents(this.props.songs, this.props)}
+        </Card.Group>
       </div>
       );
   }
