@@ -7,7 +7,7 @@ import {setSelectedTrack} from '../store/actions/setSelectedTrack.js';
 import {getTrackAnalysis} from '../store/actions/getTrackAnalysis.js';
 import {getVideos} from '../store/actions/getVideos.js';
 import { connect } from 'react-redux';
-import { Container, Form, Button } from 'semantic-ui-react';
+import { Header, Container, Grid, Divider, Form, Button } from 'semantic-ui-react';
 
 //subscribes to state; will update upon state change
 const mapStateToProps = state => ({
@@ -40,15 +40,16 @@ class SongSearchBar extends Component {
   render() {
     return (
       <div >
-        <Container>
+        <Header as='h2' dividing>
+          Search for a Song...
+        </Header>
         <Form onSubmit={this.searchSong}>
           <Form.Input fluid type="text" name="songSearchField" placeholder="enter song name"/>
-            <Form.Button animated type="submit"><Button.Content visible>click me, bro</Button.Content><Button.Content hidden>YEE</Button.Content></Form.Button>
+          <Form.Button animated type="submit"><Button.Content visible>click me, bro</Button.Content><Button.Content hidden>YEE</Button.Content></Form.Button>
         </Form>
         <div >
           <SongsList songs={this.props.songs} setSelectedTrack={this.props.setSelectedTrack} getTrackAnalysis={this.props.getTrackAnalysis} getVideos={this.props.getVideos}/>
         </div>
-      </Container>
       </div>
       )
   }

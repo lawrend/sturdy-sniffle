@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { Header, Divider } from 'semantic-ui-react';
 
 const mapStateToProps = state => ({
   selectedTrackAnalysis: state.songs.selectedTrackAnalysis,
@@ -40,8 +41,11 @@ class SongAnalysis extends Component {
     console.log("song analysis props: ", this.props.selectedTrackAnalysis)
     return (
       <div className="Song-Analysis">
-        <p>this is the song Analysis</p>
-        <p>This song is in the key of {this.translateKey(this.props.selectedTrackAnalysis.key)}</p>
+        <Header as='h2'>
+          this is the song Analysis
+        </Header>
+        This song is in the key of {this.translateKey(this.props.selectedTrackAnalysis.key)}
+        <Divider />
       </div>
       )
   }

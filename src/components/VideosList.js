@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import VideoItem from './VideoItem';
+import { Item } from 'semantic-ui-react';
 
 const mapStateToProps = state => ({
   videos: state.videos.videos,
@@ -10,21 +11,31 @@ const mapStateToProps = state => ({
 class VideosList extends Component {
 
   render() {
-const renderedList = this.props.videos.map(video => {
+    const renderedList = this.props.videos.map(video => {
+      return (
+        <Item>
+        <VideoItem
+          key={video.id.videoId}
+          video={video}
+        />
+      </Item>
+        );
+    });
+
+
     return (
-      <VideoItem
-        key={video.id.videoId}
-        video={video}
-      />
-      );
-  });
+      <Item.Group divided>
+        {renderedList}
+      </Item.Group>
 
-
-    return <div className="ui relaxed divided list">
-      {renderedList}
-    </div>
-
-    }
+      )
+  }
 }
 
 export default connect(mapStateToProps)(VideosList);
+
+// <div className="ui relaxed divided list">
+//       {renderedList}
+//     </div>
+
+

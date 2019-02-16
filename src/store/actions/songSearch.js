@@ -45,6 +45,7 @@ export const songSearch = songTitle => dispatch => {
         json: true
       };
       request.get(options, function(error, response, body) {
+        console.log(body.tracks)
         dispatch(setSongList(body.tracks.items))
         dispatch(setSearchTerm(songTitle))
       })

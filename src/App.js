@@ -3,19 +3,18 @@ import React, { Component } from 'react';
 import './App.css';
 import Routes from './routes';
 import { Link } from 'react-router-dom';
-import {Container, Divider, Grid} from 'semantic-ui-react';
+import {Menu, Container, Divider, Grid} from 'semantic-ui-react';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container>
-          <Grid>
-            <Grid.Row>
-            <Grid.Column floated="left" textAlign="left" width={8}>
+        <Menu fixed='top' inverted>
+          <Container>
+            <Menu.Item as='a' header>
               <Link to="/songsearch">Search for Songs</Link>
-            </Grid.Column>
-            <Grid.Column floated="right" textAlign="right" width={8}>
+            </Menu.Item>
+            <Menu.Item as='a' floated='right'>
               <a
                 className="App-link"
                 href="https://developer.spotify.com"
@@ -24,21 +23,16 @@ class App extends Component {
               >
                 Check out Spotify's API
               </a>
-            </Grid.Column>
-
-          </Grid.Row>
-            <Grid.Row>
-
-            <Grid.Column>
-                <Routes />
-
-            </Grid.Column>
-            </Grid.Row>
-          </Grid>
+            </Menu.Item>
+          </Container>
+        </Menu>
+        <Container style={{marginTop: '7em'}}>
+          <Routes />
         </Container>
       </div>
       );
-  }
+}
 }
 
 export default App;
+
