@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Routes from './routes';
-import { Link } from 'react-router-dom';
-import {Menu, Container, Divider, Grid} from 'semantic-ui-react';
+import {Menu, Container} from 'semantic-ui-react';
 
 class App extends Component {
   render() {
@@ -11,26 +10,26 @@ class App extends Component {
       <div className="App">
         <Menu fixed='top' inverted>
           <Container>
-            <Menu.Item as='a' header>
-              <Link to="/songsearch">Search for Songs</Link>
-            </Menu.Item>
-            <Menu.Item as='a' floated='right'>
-              <a
-                className="App-link"
-                href="https://developer.spotify.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Check out Spotify's API
-              </a>
-            </Menu.Item>
-          </Container>
-        </Menu>
-        <Container style={{marginTop: '7em'}}>
-          <Routes />
-        </Container>
-      </div>
-      );
+      <Menu.Item href="/" header>
+        Home
+      </Menu.Item>
+
+      <Menu.Item href="/songsearch" >
+        Search for Songs
+      </Menu.Item>
+      <Menu.Item href="https://developer.spotify.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        floated='right'>
+        Check out Spotify's API
+      </Menu.Item>
+    </Container>
+  </Menu>
+  <Container style={{marginTop: '7em'}}>
+    <Routes />
+  </Container>
+</div>
+);
 }
 }
 

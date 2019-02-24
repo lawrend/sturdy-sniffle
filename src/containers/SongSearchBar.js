@@ -45,10 +45,10 @@ class SongSearchBar extends Component {
         </Header>
         <Form onSubmit={this.searchSong}>
           <Form.Input fluid type="text" name="songSearchField" placeholder="enter song name"/>
-          <Form.Button animated type="submit"><Button.Content visible>click me, bro</Button.Content><Button.Content hidden>YEE</Button.Content></Form.Button>
+          <Form.Button animated type="submit"><Button.Content visible>Search</Button.Content><Button.Content hidden>GO!</Button.Content></Form.Button>
         </Form>
         <div >
-          <SongsList songs={this.props.songs} setSelectedTrack={this.props.setSelectedTrack} getTrackAnalysis={this.props.getTrackAnalysis} getVideos={this.props.getVideos}/>
+          <SongsList songs={this.props.songs} setSelectedTrack={this.props.setSelectedTrack} getTrackAnalysis={this.props.getTrackAnalysis} getVideos={this.props.getVideos}  />
         </div>
       </div>
       )

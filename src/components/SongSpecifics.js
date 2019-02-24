@@ -7,6 +7,6 @@ export default props => (
   <div>
     <SongAnalysis />
     <SongDetail />
-    <VideosList videos={props.videos}/>
+    <VideosList videos={props.videos} />
   </div>
 )

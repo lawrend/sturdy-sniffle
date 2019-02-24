@@ -15,6 +15,7 @@ const setSongList = songs => ({
 })
 
 export const SET_SEARCH_TERM ="SET_SEARCH_TERM";
+
 const setSearchTerm = term => ({
   type: SET_SEARCH_TERM,
   payload: term,

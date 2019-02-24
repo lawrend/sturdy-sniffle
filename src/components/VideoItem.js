@@ -1,9 +1,9 @@
 import React from 'react';
-import { Header, Image, Item } from 'semantic-ui-react';
+import { Item } from 'semantic-ui-react';
 
-const VideoItem = ({video}) => {
+const VideoItem = ({ video }) => {
   return (
-    <div>
+    <Item key={video.id.videoId} >
       <Item.Image size='medium' src={video.snippet.thumbnails.medium.url} />
       <Item.Content>
         <Item.Header as='a'>{video.snippet.title}</Item.Header>
@@ -11,7 +11,7 @@ const VideoItem = ({video}) => {
         <Item.Description>Description</Item.Description>
         <Item.Extra>Additional content</Item.Extra>
       </Item.Content>
-    </div>
+    </Item>
     )
 };
 

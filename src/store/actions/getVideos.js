@@ -6,7 +6,10 @@ export const GET_VIDEOS = "GET_VIDEOS";
 
 const getVideoList = videoList => ({
   type: GET_VIDEOS,
-  payload: videoList,
+  payload: {
+    videos: videoList,
+    selectedVideo: videoList[0]
+  },
 })
 
 
