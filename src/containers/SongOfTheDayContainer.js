@@ -15,7 +15,8 @@ export default class SongOfTheDayContainer extends Component {
     }
     this.getNumberOneTitle = this.getNumberOneTitle.bind(this);
     this.getNumberOneArtist = this.getNumberOneArtist.bind(this);
-      }
+    this.newNumberOne = this.newNumberOne.bind(this);
+  }
 
   getNumberOneTitle = (pageToText) => {
     let title = /chart-number-one__title">(.*)</;
@@ -24,20 +25,14 @@ export default class SongOfTheDayContainer extends Component {
     return songTitle
   }
 
-  getNumberOneArtist(pageToText) {
+  getNumberOneArtist = (pageToText) => {
     let artist = /chart-number-one__artist">\n*.*\n*(.*)\n/;
     let songArtist = artist.exec(pageToText)[1];
     return songArtist
   }
 
-
-
-
-  componentDidMount() {
-    let year = 1997;
-    let month = 3;
-    let day = 15;
-    fetch(`https://www.billboard.com/charts/pop-songs/${year}-0${month}-${day}`)
+  newNumberOne = (submittedDate) => {
+    fetch(`https://www.billboard.com/charts/pop-songs/${submittedDate}`)
       .then(results => {
         return results.text();
       })
@@ -51,10 +46,27 @@ export default class SongOfTheDayContainer extends Component {
       })
   }
 
+
+
+  // componentDidMount() {
+  //   fetch(`https://www.billboard.com/charts/pop-songs/${year}-0${month}-${day}`)
+  //     .then(results => {
+  //       return results.text();
+  //     })
+  //     .then(body => {
+  //       this.setState({
+  //         song: {
+  //           title: this.getNumberOneTitle(body),
+  //           artist: this.getNumberOneArtist(body),
+  //         },
+  //       })
+  //     })
+  // }
+
   render() {
     return (
       <div>
-      <SongOfTheDayForm />
+        <SongOfTheDayForm newNumberOne={this.newNumberOne}/>
         <SongOfTheDay artist={this.state.song.artist} title={this.state.song.title} />
       </div>
       )

@@ -22,15 +22,25 @@ export default class SongOfTheDayForm extends Component {
 
   handleSubmit = () => {
     const { year, month, day } = this.state
-
     this.setState({ submittedYear: year, submittedMonth: month, submittedDay: day })
+    this.props.newNumberOne(this.dateMaker(year, month, day))
   }
 
   dateMaker(year, month, day) {
-    let submitted_date = new Date(year, month - 1, day);
+    let submitted_date = new Date(year, month, day);
     let submitted_day = submitted_date.getDay();
-    let week_of_submitted_date = new Date(year, month - 1, day - (submitted_day + 1));
-    return week_of_submitted_date;
+    let week_of_submitted_date = new Date(year, month, day - (submitted_day + 1));
+    let unAdjMonth = week_of_submitted_date.getMonth() + 1;
+    let adjMonth = () => {
+      if(unAdjMonth < 10) {
+        return "0" + unAdjMonth.toString()
+      } else {
+        return unAdjMonth
+      }
+    }
+
+    let new_date = week_of_submitted_date.getFullYear()+"-"+adjMonth()+"-"+week_of_submitted_date.getDate()
+    return new_date
   }
 
 
