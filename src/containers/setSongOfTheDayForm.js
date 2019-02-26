@@ -3,6 +3,7 @@ import { Container, Button, Dropdown, Form, Divider } from 'semantic-ui-react';
 import { YEARS, MONTHS, THIRTY_ONE_DAYS, THIRTY_DAYS, TWENTY_EIGHT_DAYS, TWENTY_NINE_DAYS }from '../resources/dateOptions.js';
 import DateSelector from '../resources/DateSelector.js';
 import 'react-day-picker/lib/style.css';
+import moment from 'moment';
 
 export default class SongOfTheDayForm extends Component {
   constructor(props) {
@@ -15,39 +16,20 @@ export default class SongOfTheDayForm extends Component {
       day: "",
       submittedDay: "",
     }
-    this.dateMaker = this.dateMaker.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
-    const { year, month, day } = this.state
-    this.setState({ submittedYear: year, submittedMonth: month, submittedDay: day })
-    this.props.newNumberOne(this.dateMaker(year, month, day))
+    // const { year, month, day } = this.state
+    // this.setState({ submittedYear: year, submittedMonth: month, submittedDay: day })
+    this.props.getCharts(moment("2011-12-3").startOf('week').format("YYYY-MM-DD"))
+    this.props.setNumberOne(this.props.billboardDOM)
   }
-
-  dateMaker(year, month, day) {
-    let submitted_date = new Date(year, month, day);
-    let submitted_day = submitted_date.getDay();
-    let week_of_submitted_date = new Date(year, month, day - (submitted_day + 1));
-    let unAdjMonth = week_of_submitted_date.getMonth() + 1;
-    let adjMonth = () => {
-      if(unAdjMonth < 10) {
-        return "0" + unAdjMonth.toString()
-      } else {
-        return unAdjMonth
-      }
-    }
-
-    let new_date = week_of_submitted_date.getFullYear()+"-"+adjMonth()+"-"+week_of_submitted_date.getDate()
-    return new_date
-  }
-
 
   render() {
-    const {year, submittedYear, month, submittedMonth, day, submittedDay} = this.state
+    const {year, submittedYear, month, submittedMonth, day, submittedDay} = this.state;
     return (
       <div>
         <Divider hidden />
@@ -62,7 +44,7 @@ export default class SongOfTheDayForm extends Component {
           </Form.Group>
         </Form>
         <Container>
-          <DateSelector newNumberOne={this.props.newNumberOne}/>
+          <DateSelector />
         </Container>
       </div>
       )

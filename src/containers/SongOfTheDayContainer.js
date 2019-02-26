@@ -1,75 +1,53 @@
 import React, { Component } from 'react';
 import SongOfTheDay from '../components/SongOfTheDay.js';
 import SongOfTheDayForm from './setSongOfTheDayForm.js'
+import {getCharts, setNumberOne} from '../store/actions/getCharts.js';
 import { Form } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
+const mapDispatchToProps = dispatch => ({
+  chartGetter(submittedDate){
+    return dispatch(getCharts(submittedDate))
+  },
+  numeroUno(UnoInfo){
+    return dispatch(setNumberOne(UnoInfo))
+  },
+})
 
-export default class SongOfTheDayContainer extends Component {
+const mapStateToProps = state => ({
+  billboardDOM: state.charts.billboardDOM,
+  songTitle: state.charts.numberOne.title,
+  songArtist: state.charts.numberOne.artist,
+})
+
+class SongOfTheDayContainer extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      song: {
-        title:"Default for Fun",
-        artist:"Also Default",
-      },
-    }
-    this.getNumberOneTitle = this.getNumberOneTitle.bind(this);
-    this.getNumberOneArtist = this.getNumberOneArtist.bind(this);
-    this.newNumberOne = this.newNumberOne.bind(this);
+
+    // componentDidMount() {
+    //   fetch(`https://www.billboard.com/charts/pop-songs/${year}-0${month}-${day}`)
+    //     .then(results => {
+    //       return results.text();
+    //     })
+    //     .then(body => {
+    //       this.setState({
+    //         song: {
+    //           title: this.getNumberOneTitle(body),
+    //           artist: this.getNumberOneArtist(body),
+    //         },
+    //       })
+    //     })
+
   }
-
-  getNumberOneTitle = (pageToText) => {
-    let title = /chart-number-one__title">(.*)</;
-    let songTitle = title.exec(pageToText)[1];
-    console.log("title: ", songTitle)
-    return songTitle
-  }
-
-  getNumberOneArtist = (pageToText) => {
-    let artist = /chart-number-one__artist">\n*.*\n*(.*)\n/;
-    let songArtist = artist.exec(pageToText)[1];
-    return songArtist
-  }
-
-  newNumberOne = (submittedDate) => {
-    fetch(`https://www.billboard.com/charts/pop-songs/${submittedDate}`)
-      .then(results => {
-        return results.text();
-      })
-      .then(body => {
-        this.setState({
-          song: {
-            title: this.getNumberOneTitle(body),
-            artist: this.getNumberOneArtist(body),
-          },
-        })
-      })
-  }
-
-
-
-  // componentDidMount() {
-  //   fetch(`https://www.billboard.com/charts/pop-songs/${year}-0${month}-${day}`)
-  //     .then(results => {
-  //       return results.text();
-  //     })
-  //     .then(body => {
-  //       this.setState({
-  //         song: {
-  //           title: this.getNumberOneTitle(body),
-  //           artist: this.getNumberOneArtist(body),
-  //         },
-  //       })
-  //     })
-  // }
 
   render() {
     return (
       <div>
-        <SongOfTheDayForm newNumberOne={this.newNumberOne}/>
-        <SongOfTheDay artist={this.state.song.artist} title={this.state.song.title} />
+        <SongOfTheDayForm billboardDOM={this.props.billboardDOM} setNumberOne={this.props.numeroUno} getCharts={this.props.chartGetter}/>
+        <SongOfTheDay artist={this.props.songArtist} title={this.props.songTitle} />
       </div>
       )
   }
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(SongOfTheDayContainer);
