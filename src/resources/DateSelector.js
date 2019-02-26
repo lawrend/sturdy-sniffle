@@ -4,6 +4,14 @@ import moment from 'moment';
 
 import 'react-day-picker/lib/style.css';
 
+//set first day of the week to saturday because billboard charts
+moment.updateLocale('en', {
+  week: {
+    dow: 6,
+  }
+}
+)
+
 export default class DateSelector extends React.Component {
   constructor(props) {
     super(props);
@@ -19,17 +27,19 @@ export default class DateSelector extends React.Component {
       this.setState({ selectedDay: undefined, firstDay: undefined });
       return;
     }
-    this.setState({ selectedDay: day , firstDay: moment(day).startOf('week').toDate()});
+    this.setState({ selectedDay: day , firstDay: moment(day).startOf('week').format("YYYY-MM-DD")});
   }
   render() {
     return (
       <div>
         <DayPicker
+          firstDayOfWeek={6}
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
         />
         {this.state.selectedDay ? (
-          <p>You clicked {this.state.selectedDay.toLocaleDateString()}</p>
+          <p>You clicked {this.state.selectedDay.toLocaleDateString()} and the start of the week is {this.state.firstDay} {this.props.newNumberOne(this.state.firstDay)}</p>
+
         ) : (
           <p>Please select a day.</p>
         )}

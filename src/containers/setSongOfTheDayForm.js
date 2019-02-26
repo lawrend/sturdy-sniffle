@@ -62,7 +62,7 @@ export default class SongOfTheDayForm extends Component {
           </Form.Group>
         </Form>
         <Container>
-          <DateSelector />
+          <DateSelector newNumberOne={this.props.newNumberOne}/>
         </Container>
       </div>
       )
