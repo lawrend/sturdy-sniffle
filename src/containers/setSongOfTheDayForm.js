@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Dropdown, Form, Divider } from 'semantic-ui-react';
-import { YEARS, MONTHS, DAYS }from '../resources/dateOptions.js';
+import { YEARS, MONTHS, THIRTY_ONE_DAYS, THIRTY_DAYS, TWENTY_EIGHT_DAYS, TWENTY_NINE_DAYS }from '../resources/dateOptions.js';
+import DateSelector from '../resources/DateSelector.js';
+import 'react-day-picker/lib/style.css';
 
 export default class SongOfTheDayForm extends Component {
   constructor(props) {
@@ -55,10 +57,11 @@ export default class SongOfTheDayForm extends Component {
 
             <Form.Dropdown onChange ={this.handleChange } selection clearable options={MONTHS} placeholder="Month" name="month" />
 
-            <Form.Dropdown onChange ={this.handleChange } selection clearable options={DAYS} placeholder="Day" name="day" />
+            <Form.Dropdown onChange ={this.handleChange } selection clearable options={THIRTY_ONE_DAYS} placeholder="Day" name="day" />
             <Button type='submit'>Submit</Button>
           </Form.Group>
         </Form>
+        <DateSelector />
       </div>
       )
 }
