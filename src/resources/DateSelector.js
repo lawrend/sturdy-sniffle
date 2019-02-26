@@ -8,8 +8,8 @@ function getWeekDays(weekStart) {
   for (let i = 1; i < 7; i += 1) {
     days.push(
       moment(weekStart)
-        .add(i, 'days')
-        .toDate()
+      .add(i, 'days')
+      .toDate()
     );
   }
   return days;
@@ -18,11 +18,11 @@ function getWeekDays(weekStart) {
 function getWeekRange(date) {
   return {
     from: moment(date)
-      .startOf('week')
-      .toDate(),
+    .startOf('week')
+    .toDate(),
     to: moment(date)
-      .endOf('week')
-      .toDate(),
+    .endOf('week')
+    .toDate(),
   };
 }
 
@@ -85,15 +85,9 @@ export default class Example extends React.Component {
           onDayMouseLeave={this.handleDayLeave}
           onWeekClick={this.handleWeekClick}
         />
-        {selectedDays.length === 7 && (
-          <div>
-            {moment(selectedDays[0]).format('LL')} –{' '}
-            {moment(selectedDays[6]).format('LL')}
+            <div>{moment(selectedDays[0]).format('LL')}</div>
           </div>
-        )}
-
-              </div>
-    );
+          );
   }
 }
 // <Helmet>
@@ -205,7 +199,7 @@ export default class Example extends React.Component {
 //       <select name="month" onChange={handleChange} value={date.getMonth()}>
 //         {months.map((month, i) => (
 //           <option key={month} value={i}>
-//             {month}
+  //             {month}
 //           </option>
 //         ))}
 //       </select>
@@ -236,7 +230,7 @@ export default class Example extends React.Component {
 //       <div className="YearNavigation">
 //         <DayPicker
 //           month={this.state.month}
-//           fromMonth={fromMonth}
+  //           fromMonth={fromMonth}
 //           toMonth={toMonth}
 //           captionElement={({ date, localeUtils }) => (
 //             <YearMonthForm
@@ -244,8 +238,8 @@ export default class Example extends React.Component {
 //               localeUtils={localeUtils}
 //               onChange={this.handleYearMonthChange}
 //             />
-//           )}
-//         />
+  //           )}
+  //         />
 //       </div>
 //     );
 //   }
