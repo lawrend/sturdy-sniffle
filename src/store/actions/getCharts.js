@@ -9,21 +9,18 @@ const setDOM = textFile => ({
 
 })
 
-export const getCharts = submittedDate => dispatch => {
-  const getDOM = submittedDate => {
-    const response = fetch(`https://www.billboard.com/charts/billboard-200/${submittedDate}`)
-      .then(results => {
-        return results.text();
-      })
-      .then(body => {
-        dispatch(setDOM(body))
-      },
-      ).then(body => {
-        setNumberOne(body)
-      })
-  };
-  getDOM(submittedDate)
-}
+export const getCharts = submittedDate => (dispatch, getState) => {
+  const response = fetch(`https://www.billboard.com/charts/billboard-200/${submittedDate}`)
+    .then(results => {
+      return results.text();
+    })
+    .then(body => {
+      dispatch(setDOM(body))
+    },
+    ).then(() => {
+      dispatch(setNumberOne(getState().charts.billboardDOM))
+    })
+};
 
 //-------------------------------//
 export const SET_NUMBER_ONE = 'SET_NUMBER_ONE';
@@ -34,18 +31,27 @@ const setOne = numberOne => ({
 
 })
 
-//-------------------------------//
 export const setNumberOne = textDOM => dispatch => {
-  const assignNumberOne = textDOM => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(textDOM, 'text/html');
-    const namen = doc.getElementsByClassName("chart-number-one__title").innerText;
-    const arten = doc.getElementsByClassName("chart-number-one__artist").innerText;
-    const dispNamen = {title: namen, artist: arten};
-    dispatch(setOne(dispNamen))
-  }
-  assignNumberOne(textDOM)
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(textDOM, 'text/html');
+  const namen = doc.getElementsByClassName("chart-number-one__title")[0].innerText;
+  const arten = doc.getElementsByClassName("chart-number-one__artist")[0].innerText;
+  const dispNamen = {title: namen, artist: arten};
+  dispatch(setOne(dispNamen))
+
 }
+//-------------------------------//
+// export const setNumberOne = textDOM => dispatch => {
+// const assignNumberOne = textDOM => {
+//   const parser = new DOMParser();
+//   const doc = parser.parseFromString(textDOM, 'text/html');
+//   const namen = doc.getElementsByClassName("chart-number-one__title").innerText;
+//   const arten = doc.getElementsByClassName("chart-number-one__artist").innerText;
+//   const dispNamen = {title: namen, artist: arten};
+//   dispatch(setOne(dispNamen))
+// }
+// assignNumberOne(textDOM)
+// }
 
 //set state chartWeek
 // export const SET_CHART_WEEK = 'SET_CHART_WEEK';
