@@ -41,8 +41,8 @@ const setDOM = parsedDOM => ({
 
 
 export const getCharts = submittedDate => dispatch => {
-  const getDOM = async submittedDate => {
-    const response = await fetch(`https://www.billboard.com/charts/pop-songs/${submittedDate}`)
+  const getDOM = submittedDate => {
+    const response = fetch(`https://www.billboard.com/charts/billboard-200/${submittedDate}`)
       .then(results => {
         return results.text();
       })
@@ -55,9 +55,6 @@ export const getCharts = submittedDate => dispatch => {
         console.log(namen)
         const dispNamen = {title: namen, artist: arten};
         dispatch(setOne(dispNamen))
-
-        // const titleShot = doc.getElementsByClassName('.chart-number-one__title')
-        // console.log(titleShot)
       },
       )}
   getDOM(submittedDate)

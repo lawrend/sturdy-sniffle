@@ -22,9 +22,9 @@ export default class SongOfTheDayForm extends Component {
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
-    // const { year, month, day } = this.state
-    // this.setState({ submittedYear: year, submittedMonth: month, submittedDay: day })
-    this.props.getCharts(moment("2011-12-3").startOf('week').format("YYYY-MM-DD"))
+    const { year, month, day } = this.state
+    this.setState({ submittedYear: year, submittedMonth: month, submittedDay: day })
+    this.props.getCharts(moment(`${year}-${month}-${day}`).startOf('week').format("YYYY-MM-DD"))
     this.props.setNumberOne(this.props.billboardDOM)
   }
 
