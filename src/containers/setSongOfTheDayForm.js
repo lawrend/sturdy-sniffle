@@ -25,11 +25,10 @@ export default class SongOfTheDayForm extends Component {
     const { year, month, day } = this.state
     this.setState({ submittedYear: year, submittedMonth: month, submittedDay: day })
     this.props.getCharts(moment(`${year}-${month}-${day}`).startOf('week').format("YYYY-MM-DD"))
-    this.props.setNumberOne(this.props.billboardDOM)
+    // this.props.setNumberOne(this.props.billboardDOM)
   }
 
   render() {
-    const {year, submittedYear, month, submittedMonth, day, submittedDay} = this.state;
     return (
       <div>
         <Divider hidden />
