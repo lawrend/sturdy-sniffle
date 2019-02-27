@@ -1,10 +1,11 @@
 import React from 'react';
 import SongOfTheDayContainer from '../containers/SongOfTheDayContainer.js';
+import { Divider } from 'semantic-ui-react';
 
 export default props => (
   <div>
-
-    We are going to do great things in this app
+    <h1>What Song was HOT LIKE DAT at some TIME in the PAST???</h1>
     <SongOfTheDayContainer />
+    <Divider/>
   </div>
 )

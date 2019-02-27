@@ -10,25 +10,25 @@ class App extends Component {
       <div className="App">
         <Menu fixed='top' inverted>
           <Container>
-      <Menu.Item href="/" header>
-        Home
-      </Menu.Item>
+            <Menu.Item href="/" header>
+              Home
+            </Menu.Item>
 
-      <Menu.Item href="/songsearch" >
-        Search for Songs
-      </Menu.Item>
-      <Menu.Item href="https://developer.spotify.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        floated='right'>
-        Check out Spotify's API
-      </Menu.Item>
-    </Container>
-  </Menu>
-  <Container style={{marginTop: '7em'}}>
-    <Routes />
-  </Container>
-</div>
+            <Menu.Item href="/songsearch" >
+              Search for Songs
+            </Menu.Item>
+            <Menu.Item href="https://developer.spotify.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              floated='right'>
+              Check out Spotify's API
+            </Menu.Item>
+          </Container>
+        </Menu>
+        <Container style={{marginTop: '7em'}}>
+          <Routes />
+        </Container>
+  </div>
 );
 }
 }

@@ -2,8 +2,8 @@ import React from 'react';
 import { Card } from 'semantic-ui-react';
 
 export default props => (
-  <Card>
-    <Card.Content header={`Song of The Day: ${props.title}`}/>
-    <Card.Content description={`by ${props.artist}`} />
+  <Card fluid>
+    <Card.Content header={`Numba One Hit Then: ${props.title}`}/>
+    <Card.Content description={`by: ${props.artist}`} />
   </Card>
       )

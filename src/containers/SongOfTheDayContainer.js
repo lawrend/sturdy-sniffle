@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import SongOfTheDay from '../components/SongOfTheDay.js';
 import SongOfTheDayForm from './setSongOfTheDayForm.js'
 import {getCharts, setNumberOne} from '../store/actions/getCharts.js';
-import { Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => ({
@@ -21,25 +20,6 @@ const mapStateToProps = state => ({
 })
 
 class SongOfTheDayContainer extends Component {
-  constructor(props) {
-    super(props)
-
-    // componentDidMount() {
-    //   fetch(`https://www.billboard.com/charts/pop-songs/${year}-0${month}-${day}`)
-    //     .then(results => {
-    //       return results.text();
-    //     })
-    //     .then(body => {
-    //       this.setState({
-    //         song: {
-    //           title: this.getNumberOneTitle(body),
-    //           artist: this.getNumberOneArtist(body),
-    //         },
-    //       })
-    //     })
-
-  }
-
   render() {
     return (
       <div>
