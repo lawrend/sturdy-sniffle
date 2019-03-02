@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SongOfTheDay from '../components/SongOfTheDay.js';
 import SongOfTheDayForm from './setSongOfTheDayForm.js'
 import {getCharts, setNumberOne} from '../store/actions/getCharts.js';
+import { setThrowbackFromDropdown } from '../store/actions/setThrowbackDate.js';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => ({
@@ -10,6 +11,9 @@ const mapDispatchToProps = dispatch => ({
   },
   numeroUno(UnoInfo){
     return dispatch(setNumberOne(UnoInfo))
+  },
+  setThrowback(date){
+    return dispatch(setThrowbackFromDropdown(date))
   },
 })
 
@@ -23,7 +27,7 @@ class SongOfTheDayContainer extends Component {
   render() {
     return (
       <div>
-        <SongOfTheDayForm billboardDOM={this.props.billboardDOM} setNumberOne={this.props.numeroUno} getCharts={this.props.chartGetter}/>
+        <SongOfTheDayForm billboardDOM={this.props.billboardDOM} setNumberOne={this.props.numeroUno} getCharts={this.props.chartGetter} setThrowbackFromDropdown={this.props.setThrowback}/>
         <SongOfTheDay artist={this.props.songArtist} title={this.props.songTitle} />
       </div>
       )

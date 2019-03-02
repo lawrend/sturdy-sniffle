@@ -1,5 +1,3 @@
-import VideosList from '../../components/VideosList.js';
-import VideoDetail from '../../components/VideoDetail.js';
 import youtube from '../../apis/youtube.js';
 
 export const GET_VIDEOS = "GET_VIDEOS";

@@ -1,8 +1,12 @@
 import React from 'react';
-import DayPicker, { LocalUtils } from 'react-day-picker';
+import DayPicker from 'react-day-picker';
 import moment from 'moment';
-
+import { connect } from 'react-redux';
 import 'react-day-picker/lib/style.css';
+
+const mapStateToProps = state => ({
+  throwbackDate: state.charts.throwbackDate,
+})
 
 //set first day of the week to saturday because billboard charts
 moment.updateLocale('en', {
@@ -12,23 +16,27 @@ moment.updateLocale('en', {
 }
 )
 
-export default class DateSelector extends React.Component {
+class DateSelector extends React.Component {
   constructor(props) {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.state = {
       selectedDay: undefined,
-      firstDay: undefined,
     };
   }
+
   handleDayClick(day, { selected }) {
     if (selected) {
       // Unselect the day if already selected
-      this.setState({ selectedDay: undefined, firstDay: undefined });
+      this.setState({ selectedDay: undefined, });
       return;
     }
-    this.setState({ selectedDay: day , firstDay: moment(day).startOf('week').format("YYYY-MM-DD")});
+    const startOfWeek = moment(day).startOf('week').format("YYYY-MM-DD");
+    this.setState({ selectedDay: day});
+    this.props.setThrowback(startOfWeek);
+    this.props.getCharts(startOfWeek);
   }
+
   render() {
     return (
       <div>
@@ -37,15 +45,17 @@ export default class DateSelector extends React.Component {
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
         />
-        {this.state.selectedDay ? (
+            {this.state.selectedDay ? (
           <p>You clicked {this.state.selectedDay.toLocaleDateString()} and the start of the week is {this.state.firstDay} </p>
 
-        ) : (
+          ) : (
           <p>Please select a day.</p>
-        )}
-      </div>
-    );
+          )}
+          {this.props.throwbackDate ? (<p>the throwback date is {this.props.throwbackDate}</p>) : (<p>nothing yet throwback date wise</p>)}
+        </div>
+        );
   }
 }
 
+export default connect(mapStateToProps)(DateSelector);
 ///***NOTE selectedDays above is plural on purpose! it is for the css class bruh***

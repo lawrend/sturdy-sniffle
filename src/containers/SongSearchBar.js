@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
-import VideosList from '../components/VideosList.js';
-import VideoDetail from '../components/VideoDetail.js';
 import SongsList from '../components/SongsList.js';
 import {songSearch} from '../store/actions/songSearch.js';
 import {setSelectedTrack} from '../store/actions/setSelectedTrack.js';
 import {getTrackAnalysis} from '../store/actions/getTrackAnalysis.js';
 import {getVideos} from '../store/actions/getVideos.js';
 import { connect } from 'react-redux';
-import { Header, Container, Grid, Divider, Form, Button } from 'semantic-ui-react';
+import { Header, Form, Button } from 'semantic-ui-react';
 
 //subscribes to state; will update upon state change
 const mapStateToProps = state => ({

@@ -24,7 +24,9 @@ export default class SongOfTheDayForm extends Component {
   handleSubmit = () => {
     const { year, month, day } = this.state
     this.setState({ submittedYear: year, submittedMonth: month, submittedDay: day })
-    this.props.getCharts(moment(`${year}-${month + 1}-${day}`).startOf('week').format("YYYY-MM-DD"))
+    let throwbackDate = moment(`${year}-${month + 1}-${day}`).startOf('week').format("YYYY-MM-DD");
+    this.props.setThrowbackFromDropdown(throwbackDate);
+    this.props.getCharts(throwbackDate);
     // this.props.setNumberOne(this.props.billboardDOM)
   }
 
@@ -34,7 +36,7 @@ export default class SongOfTheDayForm extends Component {
         <Divider hidden />
         <Grid columns='equal'>
           <Grid.Column>
-            <DateSelector />
+            <DateSelector setThrowback={this.props.setThrowbackFromDropdown} getCharts={this.props.getCharts} />
           </Grid.Column>
           <Grid.Column>
             <Form onSubmit={this.handleSubmit}>

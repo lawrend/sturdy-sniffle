@@ -1,6 +1,5 @@
 /* .App { */
 /*   text-align: center; */
-/*   background-color: #282c34; */
 /*   min-height: 100vh; */
 /*   display: flex; */
 /*   flex-direction: column; */
@@ -18,6 +17,10 @@
 /*   color: #61dafb; */
 /* } */
 
+.App {
+  background-color: #aeaca3;
+  color: #314;
+}
 .video-item {
   display: flex !important;
   align-items: center !important;
