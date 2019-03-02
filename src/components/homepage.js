@@ -4,7 +4,7 @@ import { Divider } from 'semantic-ui-react';
 
 export default props => (
   <div>
-    <h1>What Song was HOT LIKE DAT at some TIME in the PAST???</h1>
+    <h1>Want to know what Song was <em>HOT LIKE DAT</em> at some <em>TIME</em> in the <em>PAST???</em></h1>
     <SongOfTheDayContainer />
     <Divider/>
   </div>
