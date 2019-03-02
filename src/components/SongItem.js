@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import { Image, Container, Button, Card } from 'semantic-ui-react';
+import { Image, Card } from 'semantic-ui-react';
 
 export default class SongItem extends Component{
 

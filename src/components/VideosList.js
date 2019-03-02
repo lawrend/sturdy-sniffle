@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import VideoItem from './VideoItem';
-import VideoDetail from './VideoDetail.js';
 import { Item } from 'semantic-ui-react';
 
 const mapStateToProps = state => ({
