@@ -1,7 +1,7 @@
 // import all relevant pieces of react-router-dom, and all components rendered by routes
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
-import Homepage from './components/Homepage.js'
+import Homepage from './components/homepage.js'
 import ErrorRoute from './components/ErrorRoute';
 import SongSearchBar from './containers/SongSearchBar.js';
 import SongSpecifics from './components/SongSpecifics.js';
