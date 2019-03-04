@@ -15,7 +15,6 @@ const setDate = dateInfo => ({
 })
 
 export const setThrowbackFromDropdown = date => dispatch => {
-
   dispatch(setDate(date))
 }
 
