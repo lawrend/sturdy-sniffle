@@ -16,11 +16,25 @@
 /* a { */
 /*   color: #61dafb; */
 /* } */
-
-.App {
-  background-color: #aeaca3;
-  color: #314;
+html {
+  /* background-image: linear-gradient(#eee, #bbb); */
 }
+
+body {
+  background-image: inherit;
+}
+
+.App, .div {
+  background-image: linear-gradient(#eee, #aaec11);
+  color: #314;
+  font-family: "Roboto", "Oxygen", "Helvetica Neue", sans-serif;
+  /* font-size: calc(10px + 2vmin); */
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", */
+  /* "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", */
+  /* sans-serif; */
+
+}
+
 .video-item {
   display: flex !important;
   align-items: center !important;
@@ -31,6 +45,11 @@
   max-width: 180px;
 }
 
+/* body { */
+/*   -webkit-font-smoothing: antialiased; */
+/*   -moz-osx-font-smoothing: grayscale; */
+/* } */
+
 /* .Song-Item { */
 /*   color: yellow; */
 /* } */
@@ -38,12 +57,12 @@
 /* body  { */
 /*   margin: 10; */
 /*   padding: 40; */
-/*   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", */
-/*     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", */
-/*     sans-serif; */
-/*   -webkit-font-smoothing: antialiased; */
-/*   -moz-osx-font-smoothing: grayscale; */
-/* } */
+/* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", */
+/*   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", */
+/*   sans-serif; */
+/* -webkit-font-smoothing: antialiased; */
+/* -moz-osx-font-smoothing: grayscale; */
+/* /1* } *1/ */
 
 /* code { */
 /*   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", */
