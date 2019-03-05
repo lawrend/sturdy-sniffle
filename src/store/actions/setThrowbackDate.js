@@ -1,11 +1,11 @@
-import moment from 'moment';
+// import moment from 'moment';
 
-moment.updateLocale('en', {
-  week: {
-    dow: 6,
-  }
-}
-)
+// moment.updateLocale('en', {
+//   week: {
+//     dow: 6,
+//   }
+// }
+// )
 
 export const SET_THROWBACK_DATE = 'SET_THROWBACK_DATE';
 
@@ -19,9 +19,9 @@ export const setThrowbackFromDropdown = date => dispatch => {
 }
 
 
-export const setThrowbackDateFromDatePicker = date => dispatch => {
-  dispatch(setDate(date))
-}
+// export const setThrowbackDateFromDatePicker = date => dispatch => {
+//   dispatch(setDate(date))
+// }
 
 
 

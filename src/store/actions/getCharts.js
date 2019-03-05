@@ -10,7 +10,7 @@ const setDOM = textFile => ({
 })
 
 export const getCharts = submittedDate => (dispatch, getState) => {
-  const response = fetch(`https://www.billboard.com/charts/hot-100/${submittedDate}`)
+  fetch(`https://www.billboard.com/charts/hot-100/${submittedDate}`)
     .then(results => {
       return results.text();
     })
@@ -39,6 +39,17 @@ export const setNumberOne = textDOM => dispatch => {
   const dispNamen = {title: namen, artist: arten};
   dispatch(setOne(dispNamen))
 
+}
+
+export const SET_LOADING = 'SET_LOADING';
+
+const setLoadingState = loading => ({
+  type: SET_LOADING,
+  payload: loading,
+})
+
+export const setLoading = loading => dispatch => {
+  dispatch(setLoadingState(loading))
 }
 //-------------------------------//
 //set state chartWeek

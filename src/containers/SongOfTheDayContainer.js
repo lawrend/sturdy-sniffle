@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SongOfTheDay from '../components/SongOfTheDay.js';
 import SongOfTheDayForm from './setSongOfTheDayForm.js'
-import {getCharts, setNumberOne} from '../store/actions/getCharts.js';
+import {getCharts, setNumberOne, setLoading} from '../store/actions/getCharts.js';
 import { setThrowbackFromDropdown } from '../store/actions/setThrowbackDate.js';
 import { connect } from 'react-redux';
 
@@ -15,20 +15,24 @@ const mapDispatchToProps = dispatch => ({
   setThrowback(date){
     return dispatch(setThrowbackFromDropdown(date))
   },
+  setLoadingState(loading){
+    return dispatch(setLoading(loading))
+  }
 })
 
 const mapStateToProps = state => ({
   billboardDOM: state.charts.billboardDOM,
   songTitle: state.charts.numberOne.title,
   songArtist: state.charts.numberOne.artist,
+  isLoading: state.charts.isLoading,
 })
 
 class SongOfTheDayContainer extends Component {
   render() {
     return (
       <div>
-        <SongOfTheDayForm billboardDOM={this.props.billboardDOM} setNumberOne={this.props.numeroUno} getCharts={this.props.chartGetter} setThrowbackFromDropdown={this.props.setThrowback}/>
-        <SongOfTheDay artist={this.props.songArtist} title={this.props.songTitle} />
+        <SongOfTheDayForm billboardDOM={this.props.billboardDOM} setNumberOne={this.props.numeroUno} getCharts={this.props.chartGetter} setThrowbackFromDropdown={this.props.setThrowback} setLoading={this.props.setLoadingState}  />
+        <SongOfTheDay artist={this.props.songArtist} title={this.props.songTitle} isLoading={this.props.isLoading} />
       </div>
       )
   }

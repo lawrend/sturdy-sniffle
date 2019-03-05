@@ -9,6 +9,7 @@ const mapStateToProps = state => ({
 })
 
 //set first day of the week to saturday because billboard charts
+//
 moment.updateLocale('en', {
   week: {
     dow: 6,
@@ -31,6 +32,7 @@ class DateSelector extends React.Component {
       this.setState({ selectedDay: undefined, });
       return;
     }
+    this.props.setLoading(true);
     const startOfWeek = moment(day).startOf('week').format("YYYY-MM-DD");
     this.setState({ selectedDay: day});
     this.props.setThrowback(startOfWeek);
