@@ -6,4 +6,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 > -connect to Rails API
 > -embedded video player
 > -wire calendar to the dropdown and viceversa 
+> --handle errors for dropdown entries
 >

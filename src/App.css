@@ -17,15 +17,18 @@
 /*   color: #61dafb; */
 /* } */
 html {
+  background-image: @background-image;
+
   /* background-image: linear-gradient(#eee, #bbb); */
 }
 
 body {
-  background-image: inherit;
+
 }
 
 .App, .div {
-  background-image: linear-gradient(#eee, #aaec11);
+  background: transparent;
+  background-color: transparent;
   color: #314;
   font-family: "Roboto", "Oxygen", "Helvetica Neue", sans-serif;
   /* font-size: calc(10px + 2vmin); */

@@ -3,6 +3,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Routes from './routes';
 import {Menu, Container} from 'semantic-ui-react';
+import styled from 'styled-components';
+
+const StyledContainer = styled(Container)`
+&&& {
+background: transparent;
+background-color: transparent;
+}
+`
 
 class App extends Component {
   render() {
@@ -17,6 +25,10 @@ class App extends Component {
             <Menu.Item href="/songsearch" >
               Search for Songs
             </Menu.Item>
+            <Menu.Item href="/songoftheday" >
+              Billboard Hits by Date
+            </Menu.Item>
+
             <Menu.Item href="https://developer.spotify.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -28,8 +40,8 @@ class App extends Component {
         <Container style={{marginTop: '7em'}}>
           <Routes />
         </Container>
-  </div>
-);
+      </div>
+    );
 }
 }
 

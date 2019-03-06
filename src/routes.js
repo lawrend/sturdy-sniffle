@@ -5,6 +5,7 @@ import Homepage from './components/homepage.js'
 import ErrorRoute from './components/ErrorRoute';
 import SongSearchBar from './containers/SongSearchBar.js';
 import SongSpecifics from './components/SongSpecifics.js';
+import SongOfTheDayContainer from './containers/SongOfTheDayContainer.js';
 
 class Routes extends Component {
   render() {
@@ -12,6 +13,7 @@ class Routes extends Component {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route exact path="/songsearch" component={SongSearchBar} />
+        <Route exact path="/songoftheday" component={SongOfTheDayContainer} />
         <Route path="/songspecifics/:id" component={SongSpecifics} />
         <Route component={ErrorRoute} />
       </Switch>
