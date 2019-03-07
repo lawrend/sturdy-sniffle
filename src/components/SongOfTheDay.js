@@ -3,13 +3,15 @@ import { Button, Segment, Dimmer, Loader, Card } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 const StyledCard = styled(Card)`
+
   &&&  {
-  background: transparent;
+  background: #efe;
 }
   `
 const StyledSegment = styled(Segment)`
 &&& {
-background: transparent;
+background: #dfd;
+
 }
 `
 const StyledDimmer = styled(Dimmer)`
@@ -32,7 +34,7 @@ export default class SongOfTheDay extends Component {
           <StyledDimmer active={this.props.isLoading} inverted>
             <Loader>Loooking that up...</Loader>
           </StyledDimmer>
-          <StyledCard>
+          <StyledCard fluid>
             <StyledCard.Content header={`Numba One Hit Then: ${this.props.title}`}/>
             <StyledCard.Content description={`by: ${this.props.artist}`} />
           </StyledCard>
@@ -42,23 +44,5 @@ export default class SongOfTheDay extends Component {
       )
 }
 }
-
-
-// return (
-//       <div>
-//         <Dimmer.Dimmable as={Segment} dimmed={this.props.isLoading}>
-//         <Dimmer active={this.props.isLoading} inverted>
-//           <Loader>Loooking that up...</Loader>
-//         </Dimmer>
-//         <Card fluid>
-//           <Card.Content header={`Numba One Hit Then: ${this.props.title}`}/>
-//           <Card.Content description={`by: ${this.props.artist}`} />
-//         </Card>
-//       </Dimmer.Dimmable>
-//   </div>
-
-//       )
-// }
-// }
 
 

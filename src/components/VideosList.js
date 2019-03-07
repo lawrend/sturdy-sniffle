@@ -7,15 +7,13 @@ const mapStateToProps = state => ({
   videos: state.videos.videos,
 })
 
-
 class VideosList extends Component {
 
   render() {
-
     const renderedList = this.props.videos.map(video => {
       return (
         <VideoItem
-          video={video}
+          video={video} key={video.id.videoId}
         />
         );
     });
@@ -29,9 +27,5 @@ class VideosList extends Component {
 }
 
 export default connect(mapStateToProps)(VideosList);
-
-// <div className="ui relaxed divided list">
-//       {renderedList}
-//     </div>
 
 

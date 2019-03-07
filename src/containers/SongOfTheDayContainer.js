@@ -30,7 +30,8 @@ const mapStateToProps = state => ({
 class SongOfTheDayContainer extends Component {
   render() {
     return (
-      <div>
+      <div className="SongOfTheDay">
+        <h1>What Song was #1?</h1>
         <SongOfTheDayForm billboardDOM={this.props.billboardDOM} setNumberOne={this.props.numeroUno} getCharts={this.props.chartGetter} setThrowbackFromDropdown={this.props.setThrowback} setLoading={this.props.setLoadingState}  />
         <SongOfTheDay artist={this.props.songArtist} title={this.props.songTitle} isLoading={this.props.isLoading} />
       </div>

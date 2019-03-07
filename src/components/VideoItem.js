@@ -1,42 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Item } from 'semantic-ui-react';
 
-const VideoItem = ({ video }) => {
-  return (
-    <Item key={video.id.videoId} >
-      <Item.Image size='medium' src={video.snippet.thumbnails.medium.url} />
-      <Item.Content>
-        <Item.Header as='a'>{video.snippet.title}</Item.Header>
-        <Item.Meta>Meta</Item.Meta>
-        <Item.Description>Description</Item.Description>
-        <Item.Extra>Additional content</Item.Extra>
-      </Item.Content>
-    </Item>
-    )
-};
+class VideoItem extends Component {
+  render(){
+
+  console.log("video Id: ", this.props.video.id.videoId)
+    return(
+<div className="youtube-wrapper">
+      <div className="youtube">
+        <iframe
+          className="youtube-frame"
+          src={`https://www.youtube.com/embed/${this.props.video.id.videoId}?`}
+          allowFullScreen
+        />
+    </div>
+  </div>
+  )
+}}
 
 export default VideoItem;
-// <div onClick={() => onVideoSelect(video)} className="video-item item">
-//       <img
-//         alt={video.snippet.title}
-//         className="ui image"
-//         src={video.snippet.thumbnails.medium.url}
-//       />
-//       <div className="content">
-//         <div className="header">{video.snippet.title}</div>
-//       </div>
-//     </div>
-//
-// const VideoItem = ({ video, onVideoSelect }) => {
-//   return (
-//     <div>
-//       <Item.Image size='medium' src={video.snippet.thumbnails.medium.url} />
-//         <Item.Content>
-//           <Item.Header as='a'>{video.snippet.title}</Item.Header>
-//           <Item.Meta>Meta</Item.Meta>
-//           <Item.Description>Description</Item.Description>
-//           <Item.Extra>Additional content</Item.Extra>
-//         </Item.Content>
-//     </div>
-//       );
+    // <Item >
+    //   <Item.Image size='medium' src={video.snippet.thumbnails.medium.url} />
+    //   <Item.Content>
+    //     <Item.Header as='a'>{video.snippet.title}</Item.Header>
+    //     <Item.Meta>Meta</Item.Meta>
+    //     <Item.Description>{video.snippet.description}</Item.Description>
+    //     <Item.Extra>Additional content</Item.Extra>
+    //   </Item.Content>
+    // </Item>
 

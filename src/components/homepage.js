@@ -2,8 +2,8 @@ import React from 'react';
 import { Divider } from 'semantic-ui-react';
 
 export default props => (
-  <div>
-    <h1>Want to know what Song was #1?</h1>
+  <div className="homepage">
+    <h1>Select from the menu bar above</h1>
     <Divider/>
   </div>
 )

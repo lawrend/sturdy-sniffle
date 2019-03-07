@@ -3,19 +3,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Routes from './routes';
 import {Menu, Container} from 'semantic-ui-react';
-import styled from 'styled-components';
-
-const StyledContainer = styled(Container)`
-&&& {
-background: transparent;
-background-color: transparent;
-}
-`
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <Menu fixed='top' inverted>
           <Container>
             <Menu.Item href="/" header>
@@ -37,7 +29,7 @@ class App extends Component {
             </Menu.Item>
           </Container>
         </Menu>
-        <Container style={{marginTop: '7em'}}>
+        <Container>
           <Routes />
         </Container>
       </div>
