@@ -16,10 +16,15 @@
 /* a { */
 /*   color: #61dafb; */
 /* } */
+
 html {
 }
 
 body {
+}
+
+.ui.card .content .header {
+  color: red;
 }
 
 .App, .div {
