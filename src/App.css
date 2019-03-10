@@ -1,21 +1,3 @@
-/* .App { */
-/*   text-align: center; */
-  /* min-height: 100vh; */
-/*   display: flex; */
-/*   flex-direction: column; */
-/*   align-items: center; */
-/*   justify-content: center; */
-/*   font-size: calc(10px + 2vmin); */
-/*   color: white; */
-/* } */
-
-/* .App-link { */
-/*   color: #61dafb; */
-/* } */
-
-/* a { */
-/*   color: #61dafb; */
-/* } */
 
 html {
 }
@@ -23,15 +5,16 @@ html {
 body {
 }
 
-.ui.card .content .header {
-  color: red;
-}
+
 
 .App, .div {
   padding-top: 7em; 
   padding-bottom: 7em;
   background: transparent;
-  background-image : linear-gradient(#fdfffc, #9e9);
+  background-image : 
+    radial-gradient(
+      circle at top center,
+      #fdfffc, #81f18d);
   color: #314;
   font-family: "Roboto", "Oxygen", "Helvetica Neue", sans-serif;
   min-height: 100vh;
